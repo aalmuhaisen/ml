@@ -15,16 +15,11 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
-%We will use if statement nested in a loop to set p to 1 or 0 based
-%on the probability.
-p = sigmoid(X*theta);
-for ii = 1:length(p)
-    if p(ii)>=0.5
-        p(ii) = 1;
-    else
-        p(ii) = 0;
-    end
-end
+%Set p to 1 or 0 based on probability
+x = sigmoid(X*theta);
+p(x>=0.5) = 1;
+p(x<0.5) = 0;
+
 
 % =========================================================================
 
