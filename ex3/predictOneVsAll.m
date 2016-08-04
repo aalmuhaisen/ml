@@ -30,9 +30,11 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
-
+%Max will give us m*2 matrix where first column contain probability and
+%second column contain the class represented by the index.
+A = sigmoid(X*all_theta');
+[prob, index] = max(A, [], 2);
+p = index;
 
 
 

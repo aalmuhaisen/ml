@@ -36,13 +36,17 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+%Find the hypothesis using the sigmoid function & define temp for shifting
+h = sigmoid(X*theta);
+temp = theta;
+temp(1) = 0;
 
+%Cost function.
+J = ((-y'*log(h))-(ones(size(y))-y)'*log(ones(size(h))-h))/m + lambda/(2*m)*(temp'*temp);
 
-
-
-
-
-
+%Calculate the grdiant eq.
+grad = (X'*(h-y))/m;
+grad = grad + (lambda/m)*temp;
 
 
 % =============================================================
